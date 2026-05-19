@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, Fragment } from 'react';
 import { Play, RotateCcw, Activity, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -347,14 +347,14 @@ export default function App() {
                 <h3 className="text-xs font-bold uppercase text-slate-400 mb-3 tracking-widest">Step-by-Step Traversal</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {result.sequence.map((track, i) => (
-                    <React.Fragment key={i}>
+                    <Fragment key={i}>
                       <span className="px-2 py-1 bg-slate-50 border border-slate-100 rounded text-xs font-mono text-slate-700 shadow-tiny">
                         {track}
                       </span>
                       {i < result.sequence.length - 1 && (
                         <span className="self-center text-slate-300 text-[10px]">&rarr;</span>
                       )}
-                    </React.Fragment>
+                    </Fragment>
                   ))}
                 </div>
               </motion.div>

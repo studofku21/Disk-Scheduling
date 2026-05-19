@@ -1,11 +1,27 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import {defineConfig, transformWithEsbuild} from 'vite';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      {
+        name: 'load-js-as-jsx',
+        async transform(code, id) {
+          if (!id.match(/src\/.*\.js$/)) {
+            return null;
+          }
+
+          return await transformWithEsbuild(code, id, {
+            loader: 'jsx',
+            format: 'esm',
+          });
+        },
+      },
+      react(),
+      tailwindcss(),
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
