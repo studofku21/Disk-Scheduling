@@ -9,18 +9,11 @@ import { motion, AnimatePresence } from 'motion/react';
  * It visualizes the head movement on a 200-track disk (0-199).
  */
 
-type SimulationResult = {
-  algorithm: string;
-  sequence: number[];
-  totalMovement: number;
-  color: string;
-};
-
 export default function App() {
-  const [tracksInput, setTracksInput] = useState<string>('98, 183, 37, 122, 14, 124, 65, 67');
-  const [initialHead, setInitialHead] = useState<number>(53);
-  const [result, setResult] = useState<SimulationResult | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [tracksInput, setTracksInput] = useState('98, 183, 37, 122, 14, 124, 65, 67');
+  const [initialHead, setInitialHead] = useState(53);
+  const [result, setResult] = useState(null);
+  const canvasRef = useRef(null);
 
   // Parse input string into an array of numbers
   const parseTracks = () => {
@@ -104,7 +97,7 @@ export default function App() {
     }
   }, [result]);
 
-  const drawChart = (simResult: SimulationResult) => {
+  const drawChart = (simResult) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
