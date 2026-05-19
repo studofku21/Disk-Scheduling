@@ -1,0 +1,6 @@
+{
+  "name": "Disk Scheduling Simulator",
+  "description": "A college-level simulator for disk scheduling algorithms (FCFS and SSTF) with a real-time Seek Chart visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
