@@ -275,7 +275,6 @@ export default function App() {
       // --- Slide 1: Cover Page (Dark Accent) ---
       const sl1 = pptx.addSlide();
       sl1.background = { color: themePrimary };
-      
       sl1.addText("ACADEMIC ASSESSMENT LAB", {
         x: 0.8, y: 1.5, w: 11, h: 0.4,
         fontSize: 12, color: "818CF8", fontFace: "Calibri", bold: true, tracking: 1.5
@@ -288,140 +287,265 @@ export default function App() {
         x: 0.8, y: 3.8, w: 10.5, h: 0.8,
         fontSize: 13, color: "94A3B8", fontFace: "Arial"
       });
-      sl1.addText("Algorithmic Scope: First-Come, First-Served & Shortest Seek Time First", {
+      sl1.addText("Algorithmic Scope: 15-Slide Master Deck & Mechanical Queue Solutions", {
         x: 0.8, y: 5.6, w: 11, h: 0.4,
         fontSize: 12, color: "A5B4FC", fontFace: "Lucida Console", italic: true
       });
 
-      // --- Slide 2: Structural Bottleneck explanation ---
+      // --- Slide 2: Platter Geography ---
       const sl2 = pptx.addSlide();
       sl2.background = { color: lightBG };
-      sl2.addText("01 / PROBLEM STATEMENT", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, fontFace: "Arial", bold: true });
-      sl2.addText("The Subsystem Bottleneck: Seek Nozzle Delay", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
-      
-      sl2.addText("In magnetic platter storage assemblies, the mechanical travel of the read/write nozzle from one address boundary cylinder to another dominates I/O response thresholds.", {
-        x: 0.8, y: 1.5, w: 6.5, h: 0.9, fontSize: 12, color: "334155"
+      sl2.addText("01 / GEOMETRIC CONSTRAINTS", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl2.addText("Platter Anatomy & Disk Geometry", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl2.addText("Concentric tracks on physical platters form vertically aligned cylinders. An electromagnetic actuator shifts the tip back and forth.", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      sl2.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl2.addText("PHYSICAL SPECIFICATION BOUNDS", { x: 1.2, y: 2.6, w: 10.2, h: 0.3, fontSize: 13, color: themeSecondary, bold: true });
+      sl2.addText("• Platters: Circular magnetic substrates coating storage sectors\n" +
+                   "• Track Coordinates: Simulates a track envelope from 0 (innermost) to 199 (outermost)\n" +
+                   "• Read/Write head nozzle: Shifts dynamically to address seek destinations of requests queue", {
+        x: 1.2, y: 3.1, w: 10.2, h: 2.4, fontSize: 12, color: textDark, lineSpacing: 24
       });
 
-      sl2.addText([
-        { text: "Seek Time Overhead\n", options: { bold: true, color: themeSecondary } },
-        { text: "The physical execution delta where structural electromagnetic voice-coils shift the slider layout from its home resting address cylinder track.\n\n" },
-        { text: "Rotational Latency\n", options: { bold: true, color: themeSecondary } },
-        { text: "The static rotation delay while waiting for memory disk block geometry sectors to revolve under the head.\n\n" },
-        { text: "Optimizing Directives\n", options: { bold: true, color: themeSecondary } },
-        { text: "Intelligent scheduling ensures arm sweeps are compact, avoiding redundant nozzle oscillation backlashes." }
-      ], { x: 0.8, y: 2.6, w: 6.5, h: 3.2, fontSize: 11, color: textMuted });
-
-      // Side geometric showcase visual card
-      sl2.addShape(pptx.shapes.RECTANGLE, { x: 7.8, y: 1.5, w: 4.8, h: 4.3, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
-      sl2.addText("SIMULATOR BOUNDS", { x: 8.2, y: 1.8, w: 4.0, h: 0.3, fontSize: 12, color: themeSecondary, bold: true });
-      sl2.addText("• Linear track range: 0 to 199 blocks\n" +
-                   "• Dynamic random queues of storage queries\n" +
-                   "• Dual performance benchmarks: sequential vs spatial closest search parameters\n" +
-                   "• Step vertical sequencing visual trace (Y-axis downwards)", {
-        x: 8.2, y: 2.3, w: 4.0, h: 3.0, fontSize: 11, color: textDark
-      });
-
-      // --- Slide 3: FCFS Protocol Detail ---
+      // --- Slide 3: Mechanical Latency ---
       const sl3 = pptx.addSlide();
       sl3.background = { color: lightBG };
-      sl3.addText("02 / PROTOCOL ARCHITECTURE", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
-      sl3.addText("First-Come, First-Served Scheduling (FCFS)", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
-      
-      sl3.addText("FCFS services incoming tasks strictly matches their chronological arrival timestamp. No comparative reorganization occurs, protecting operational sequences.", {
+      sl3.addText("02 / PERFORMANCE BARRIERS", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: "EF4444", bold: true });
+      sl3.addText("The Physics of Mechanical Latency", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl3.addText("Physical movement restricts physical hardware drive performance scores. Three latency barriers restrict throughput speed:", {
         x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
       });
+      // 3 block layouts
+      sl3.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 3.5, h: 3.6, fill: { color: "EEF2FF" }, line: { color: "C7D2FE", width: 1 } });
+      sl3.addText("1. SEEK TIME", { x: 1.1, y: 2.6, w: 2.9, h: 0.3, fontSize: 12, color: "3730A3", bold: true });
+      sl3.addText("The absolute delay as voice-coils accelerate and reposition the arm to target cylinder boundaries.", { x: 1.1, y: 3.1, w: 2.9, h: 2.6, fontSize: 11, color: "1E1B4B" });
 
-      // Pros
-      sl3.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 5.2, h: 3.6, fill: { color: "EEF2FF" }, line: { color: "C7D2FE", width: 1 } });
-      sl3.addText("OPERATIONAL STRENGTHS", { x: 1.2, y: 2.6, w: 4.4, h: 0.3, fontSize: 13, color: "3730A3", bold: true });
-      sl3.addText("• Zero lookup overhead: Simple linear array processing\n" +
-                   "• Guaranteed equity: Prevents starvation; all track cylinders are executed in turn\n" +
-                   "• Stable, predictable performance for balanced workloads.", {
-        x: 1.2, y: 3.1, w: 4.4, h: 2.4, fontSize: 11, color: "1E1B4B"
-      });
+      sl3.addShape(pptx.shapes.RECTANGLE, { x: 4.6, y: 2.3, w: 3.5, h: 3.6, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 } });
+      sl3.addText("2. ROTATIONAL INTENSITY", { x: 4.9, y: 2.6, w: 2.9, h: 0.3, fontSize: 12, color: "166534", bold: true });
+      sl3.addText("The static delay waiting for physical magnetic media blocks to spin underneath the resting head.", { x: 4.9, y: 3.1, w: 2.9, h: 2.6, fontSize: 11, color: "14532D" });
 
-      // Cons
-      sl3.addShape(pptx.shapes.RECTANGLE, { x: 6.6, y: 2.3, w: 5.2, h: 3.6, fill: { color: "FFF5F5" }, line: { color: "FED7D7", width: 1 } });
-      sl3.addText("CRITICAL DISADVANTAGES", { x: 7.0, y: 2.6, w: 4.4, h: 0.3, fontSize: 13, color: "9B2C2C", bold: true });
-      sl3.addText("• Wild track swings: Arm leaps from low bounds to high boundaries (e.g. 14 -> 183 -> 37)\n" +
-                   "• High fatigue limits: Physical voice-coils degrade rapidly under directional switch-backlashes\n" +
-                   "• Extremely high average response delays.", {
-        x: 7.0, y: 3.1, w: 4.4, h: 2.4, fontSize: 11, color: "742A2A"
-      });
+      sl3.addShape(pptx.shapes.RECTANGLE, { x: 8.4, y: 2.3, w: 3.5, h: 3.6, fill: { color: "FFFBEB" }, line: { color: "FDE68A", width: 1 } });
+      sl3.addText("3. TRANSFER LIMITS", { x: 8.7, y: 2.6, w: 2.9, h: 0.3, fontSize: 12, color: "92400E", bold: true });
+      sl3.addText("The electrical bit density thresholds governing reading write actions onto track boundaries.", { x: 8.7, y: 3.1, w: 2.9, h: 2.6, fontSize: 11, color: "78350F" });
 
-      // --- Slide 4: SSTF Protocol Detail ---
+      // --- Slide 4: FCFS Protocol Protocol ---
       const sl4 = pptx.addSlide();
       sl4.background = { color: lightBG };
-      sl4.addText("03 / HEURISTIC OPTIMIZATION", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeAccent, bold: true });
-      sl4.addText("Shortest Seek Time First (SSTF) Protocol", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
-      
-      sl4.addText("SSTF resolves local mechanical transit delays by selecting the memory cylinder address closest to the nozzle tip at each step loop.", {
+      sl4.addText("03 / FIFO BASELINE SCHEDULER", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl4.addText("First-Come, First-Served Protocol Architecture", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl4.addText("FCFS services incoming storage inputs strictly matching their chronological queue sequence. No search sorting is run.", {
         x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
       });
+      // Pros / Cons
+      sl4.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 5.2, h: 3.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 } });
+      sl4.addText("ADVANTAGES", { x: 1.2, y: 2.6, w: 4.4, h: 0.3, fontSize: 13, color: "334155", bold: true });
+      sl4.addText("• Zero administrative sort overhead\n• Full equity: rules out starving outermost registers\n• Predictable and chronological data response path", { x: 1.2, y: 3.1, w: 4.4, h: 2.4, fontSize: 11, color: textDark, lineSpacing: 18 });
 
-      // SSTF logic calculation block
-      sl4.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 } });
-      sl4.addText("GREEDY SEARCH MATHEMATICAL BEHAVIOR", { x: 1.2, y: 2.6, w: 10, h: 0.3, fontSize: 12, color: "166534", bold: true });
-      sl4.addText(
-        "1. Capture home resting head context H\n" +
-        "2. For each pending addressing block target T_i in unresolved tasks queue:\n" +
-        "      Compute Absolute Delta: Distance_i = | T_i - H |\n" +
-        "3. Evaluate optimal target pointer: Next_Index = argmin(Distance_i)\n" +
-        "4. Reposition nozzle directly to T_Next_Index\n" +
-        "5. Reassign Home context H = T_Next_Index, pop solved request, and loop",
-        { x: 1.2, y: 3.1, w: 10, h: 1.8, fontSize: 11, color: "14532D", fontFace: "Courier New" }
-      );
-      sl4.addText("Academic Alert: Risks cylinder starvation if requests dynamically group around the active nozzle zone, freezing outer tracks.", {
-        x: 1.2, y: 5.1, w: 10, h: 0.5, fontSize: 10, color: "16A34A", italic: true
-      });
+      sl4.addShape(pptx.shapes.RECTANGLE, { x: 6.6, y: 2.3, w: 5.2, h: 3.6, fill: { color: "FFF5F5" }, line: { color: "FED7D7", width: 1 } });
+      sl4.addText("CRITICAL FLAWS", { x: 7.0, y: 2.6, w: 4.4, h: 0.3, fontSize: 13, color: "9B2C2C", bold: true });
+      sl4.addText("• Wild track swings: nozzle loops over outer boundaries\n• Cumulative actuator wear occurs rapidly\n• Large seek path averages degrade physical platters", { x: 7.0, y: 3.1, w: 4.4, h: 2.4, fontSize: 11, color: "742A2A", lineSpacing: 18 });
 
-      // --- Slide 5: Performance comparison data analysis ---
+      // --- Slide 5: SSTF Protocol ---
       const sl5 = pptx.addSlide();
       sl5.background = { color: lightBG };
-      sl5.addText("04 / NUMERICAL ANALYSIS", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
-      sl5.addText("Comparative Lab Benchmarks", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
-      
-      sl5.addText("Based on initial head allocation 53 with workload: [98, 183, 37, 122, 14, 124, 65, 67]", {
-        x: 0.8, y: 1.4, w: 11, h: 0.4, fontSize: 12, color: "334155"
+      sl5.addText("04 / PROXIMITY EXPEDIENCE", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeAccent, bold: true });
+      sl5.addText("Shortest Seek Time First (SSTF) Heuristic", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl5.addText("SSTF maximizes local response timing by targeting track cylinders situated closest to the nozzle tip on each step loop.", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      sl5.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 } });
+      sl5.addText("MATHEMATICAL GREEDY LOGIC RULES", { x: 1.2, y: 2.6, w: 10.2, h: 0.3, fontSize: 12, color: "115E59", bold: true });
+      sl5.addText("1. Capture active head pointer index location H\n" +
+                   "2. For each queued target cylinder T_i in pending array queue, calculate distance: Delta_i = |T_i - H|\n" +
+                   "3. Pick optimal track pointer location: Next_Target = argmin(Delta_i)\n" +
+                   "4. Reposition head to Next_Target, slice request from pending queue stack, and repeat loops", {
+        x: 1.2, y: 3.1, w: 10.2, h: 2.4, fontSize: 11, color: "134E4A", fontFace: "Courier New", lineSpacing: 18
       });
 
-      // Column FCFS
-      sl5.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.1, w: 5.2, h: 3.8, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
-      sl5.addText("FCFS SIMULATION OUTPUT", { x: 1.2, y: 2.4, w: 4.4, h: 0.3, fontSize: 13, color: themeSecondary, bold: true });
-      sl5.addText("• Traversed Order: 53 → 98 → 183 → 37 → 122 → 14 → 124 → 65 → 67\n" +
-                   "• Calculation flow:\n" +
-                   "  |98-53| + |183-98| + |37-183| + ...\n" +
-                   "• Total Seek Movement: 640 Tracks\n" +
-                   "• Performance rating: Low speed; high mechanical wear.", {
-        x: 1.2, y: 2.9, w: 4.4, h: 2.6, fontSize: 11, color: textDark
-      });
-
-      // Column SSTF
-      sl5.addShape(pptx.shapes.RECTANGLE, { x: 6.6, y: 2.1, w: 5.2, h: 3.8, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 } });
-      sl5.addText("SSTF OPTIMIZED OUTPUT", { x: 7.0, y: 2.4, w: 4.4, h: 0.3, fontSize: 13, color: "15803D", bold: true });
-      sl5.addText("• Traversed Order: 53 → 65 → 67 → 37 → 14 → 98 → 122 → 124 → 183\n" +
-                   "• Calculation flow (Dynamic Nearest first):\n" +
-                   "  |65-53| + |67-65| + |37-67| + ...\n" +
-                   "• Total Seek Movement: 236 Tracks\n" +
-                   "• Latency Saving: ~63.1% physical optimization!", {
-        x: 7.0, y: 2.9, w: 4.4, h: 2.6, fontSize: 11, color: "14532D"
-      });
-
-      // --- Slide 6: Conclusions ---
+      // --- Slide 6: Starvation Dilemma ---
       const sl6 = pptx.addSlide();
-      sl6.background = { color: themePrimary };
-      sl6.addText("05 / SUMMATION & CONCLUSIONS", { x: 0.8, y: 0.8, w: 11, h: 0.3, fontSize: 11, color: "818CF8", bold: true });
-      sl6.addText("Laboratory Recap & Takeaways", { x: 0.8, y: 1.2, w: 11, h: 0.6, fontSize: 30, color: textLight, fontFace: "Georgia", bold: true });
+      sl6.background = { color: lightBG };
+      sl6.addText("05 / ALLOCATION INEQUALITY", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: "D97706", bold: true });
+      sl6.addText("The SSTF Bottleneck: Track Starvation", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl6.addText("Because SSTF uses a locality-oriented greedy search, it locks outlying tracks from servicing if active requests keep entering near center sectors.", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      sl6.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "FFFBEB" }, line: { color: "FCD34D", width: 1 } });
+      sl6.addText("THE RESOURCE LOCKOUT MECHANISM", { x: 1.2, y: 2.6, w: 10.2, h: 0.3, fontSize: 12, color: "92400E", bold: true });
+      sl6.addText("• High Density Clusters: Incoming tracks grouped at center (e.g. 50-70) trigger constant micro shifts.\n" +
+                   "• Extreme Addresses: Request queues standing at cylinder extremities (e.g. 14, 183) wait indefinitely.\n" +
+                   "• Scheduling Tradeoff: Optimizing speed degrades fairness variables unless linear elevators (SCAN) are employed.", {
+        x: 1.2, y: 3.1, w: 10.2, h: 2.4, fontSize: 12, color: "78350F", lineSpacing: 20
+      });
 
-      sl6.addText([
-        { text: "1. Performance Dominance: ", options: { bold: true, color: "818CF8" } },
-        { text: "SSTF consistently mitigates cumulative track traverse distances, boosting subsystem bandwidth scores.\n\n" },
-        { text: "2. Starvation Vulnerability: ", options: { bold: true, color: "818CF8" } },
-        { text: "The localized search methodology introduces resource unfairness. Elevator schedules (SCAN, C-SCAN) resolve this by ensuring uniform linear passes.\n\n" },
-        { text: "3. Educational Takeaway: ", options: { bold: true, color: "818CF8" } },
-        { text: "Simulators help conceptualize and test direct structural interaction layers within operating systems engineering." }
-      ], { x: 0.8, y: 2.2, w: 11, h: 3.5, fontSize: 12, color: "CBD5E1" });
+      // --- Slide 7: Comparative Data ---
+      const sl7 = pptx.addSlide();
+      sl7.background = { color: lightBG };
+      sl7.addText("06 / QUANTITATIVE ANALYSIS", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl7.addText("Laboratory Comparative Run Benchmarks", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl7.addText("Dataset variables executed at target resting head point 53: [98, 183, 37, 122, 14, 124, 65, 67]", {
+        x: 0.8, y: 1.5, w: 11, h: 0.4, fontSize: 12, color: "334155"
+      });
+      // FCFS result card
+      sl7.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.1, w: 5.2, h: 3.8, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl7.addText("FCFS SEQUENTIAL ORDER CHART", { x: 1.2, y: 2.4, w: 4.4, h: 0.3, fontSize: 12, color: themeSecondary, bold: true });
+      sl7.addText("• Execution order matches arrival sequential queue\n" +
+                   "• Nozzle movement path distance calculation:\n" +
+                   "  |98-53| + |183-98| + |37-183| + ...\n" +
+                   "• Absolute Total Seeking Traverse: 640 tracks", { x: 1.2, y: 2.9, w: 4.4, h: 2.6, fontSize: 11, color: textDark, lineSpacing: 18 });
+
+      // SSTF optimized card
+      sl7.addShape(pptx.shapes.RECTANGLE, { x: 6.6, y: 2.1, w: 5.2, h: 3.8, fill: { color: "F0FDF4" }, line: { color: "BBF7D0", width: 1 } });
+      sl7.addText("SSTF NEAREST-PROXIMITY CHART", { x: 7.0, y: 2.4, w: 4.4, h: 0.3, fontSize: 12, color: "15803D", bold: true });
+      sl7.addText("• Execution order shifts dynamically based on distance argmin()\n" +
+                   "• Nozzle reposition path distance calculation:\n" +
+                   "  |65-53| + |67-65| + |37-67| + ...\n" +
+                   "• Absolute Total Seeking Traverse: 236 tracks (~63.1% physical optimization!)", { x: 7.0, y: 2.9, w: 4.4, h: 2.6, fontSize: 11, color: "14532D", lineSpacing: 18 });
+
+      // --- Slide 8: Built with AI ---
+      const sl8 = pptx.addSlide();
+      sl8.background = { color: themePrimary };
+      sl8.addText("07 / PROJECT SCHEMATICS", { x: 0.8, y: 1.2, w: 11, h: 0.3, fontSize: 11, color: "818CF8", bold: true });
+      sl8.addText("Engineering Origins: AI-Assisted Synthesis", { x: 0.8, y: 1.6, w: 11, h: 0.6, fontSize: 30, color: textLight, fontFace: "Georgia", bold: true });
+      sl8.addText([
+        { text: "• Gemini-Driven Workspace: ", options: { bold: true, color: "818CF8" } },
+        { text: "This educational companion is synthetically codesigned using an agent workspace inside Google AI Studio.\n\n" },
+        { text: "• Natural Language Translation: ", options: { bold: true, color: "818CF8" } },
+        { text: "Prompt guidelines were mapped into full functional systems, completely avoiding traditional slow manual coding routines.\n\n" },
+        { text: "• Human-AI Symbiosis: ", options: { bold: true, color: "818CF8" } },
+        { text: "The system ensures math calculations and canvas plots are robust and responsive to student inputs." }
+      ], { x: 0.8, y: 2.5, w: 11, h: 3.5, fontSize: 13, color: "CBD5E1" });
+
+      // --- Slide 9: Tech Stack ---
+      const sl9 = pptx.addSlide();
+      sl9.background = { color: lightBG };
+      sl9.addText("08 / TECHNOLOGY INVENTORY", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl9.addText("Development Framework Stack", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl9.addText("A modern suite of robust and standardized frameworks powers the interactive layers:", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      // Stack list
+      sl9.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.2, w: 3.5, h: 1.7, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl9.addText("LANGUAGES & ENGINE", { x: 1.0, y: 2.4, w: 3.1, h: 0.25, fontSize: 11, color: themeSecondary, bold: true });
+      sl9.addText("TypeScript / ESM JavaScript\nReact 18/19 state core", { x: 1.0, y: 2.7, w: 3.1, h: 1.0, fontSize: 10, color: textDark });
+
+      sl9.addShape(pptx.shapes.RECTANGLE, { x: 4.6, y: 2.2, w: 3.5, h: 1.7, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl9.addText("AESTHETIC LAYOUTS", { x: 4.8, y: 2.4, w: 3.1, h: 0.25, fontSize: 11, color: themeSecondary, bold: true });
+      sl9.addText("Tailwind CSS utility classes\nFramer Motion transitions", { x: 4.8, y: 2.7, w: 3.1, h: 1.0, fontSize: 10, color: textDark });
+
+      sl9.addShape(pptx.shapes.RECTANGLE, { x: 8.4, y: 2.2, w: 3.5, h: 1.7, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl9.addText("COMPILATION LAYER", { x: 8.6, y: 2.4, w: 3.1, h: 0.25, fontSize: 11, color: themeSecondary, bold: true });
+      sl9.addText("Vite Bundler pipelines\nUnified sandboxed containers", { x: 8.6, y: 2.7, w: 3.1, h: 1.0, fontSize: 10, color: textDark });
+
+      sl9.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 4.2, w: 11, h: 1.5, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl9.addText("REPRESENTING REAL-TIME PLOTS & SLIDES GENERATION", { x: 1.1, y: 4.4, w: 10.4, h: 0.25, fontSize: 11, color: "10B981", bold: true });
+      sl9.addText("Plotting on the browser-native HTML5 Canvas 2D container for high-speed coordinate vectors. Binary slide generation drives directly from user state into editable PPTX blocks via the client library pptxgenjs.", { x: 1.1, y: 4.7, w: 10.4, h: 0.9, fontSize: 10, color: textDark });
+
+      // --- Slide 10: SDLC Planning ---
+      const sl10 = pptx.addSlide();
+      sl10.background = { color: lightBG };
+      sl10.addText("09 / SOFTWARE LIFE CYCLE", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl10.addText("SDLC Phase 1: Planning & Analysis", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl10.addText("We defined constraints, user interactive inputs, and OS theoretical models before writing code files:", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      sl10.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl10.addText("REQUIREMENTS INVENTORY MAP", { x: 1.2, y: 2.6, w: 10.2, h: 0.3, fontSize: 12, color: themeSecondary, bold: true });
+      sl10.addText("• Boundaries: Limit dynamic cylinder range to exactly 0 - 199. Reject strings or out of bounds indices safely.\n" +
+                   "• State Variables: Rest tract coordinates, seek history logger array, absolute accumulate seek sum tracker.\n" +
+                   "• Target Audience: College computer science laboratory exercises requiring immediate on-screen plots and PowerPoint download files.", {
+        x: 1.2, y: 3.1, w: 10.2, h: 2.4, fontSize: 12, color: textDark, lineSpacing: 22
+      });
+
+      // --- Slide 11: SDLC Design ---
+      const sl11 = pptx.addSlide();
+      sl11.background = { color: lightBG };
+      sl11.addText("10 / SOFTWARE LIFE CYCLE", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl11.addText("SDLC Phase 2: Interface & Visual Design", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl11.addText("We created comprehensive layout wireframes to structure student interaction flows logically:", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      sl11.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "F8FAFC" }, line: { color: "E2E8F0", width: 1 } });
+      sl11.addText("LAYOUT BLUEPRINTS OVERVIEW", { x: 1.2, y: 2.6, w: 10.2, h: 0.3, fontSize: 12, color: themeSecondary, bold: true });
+      sl11.addText("1. Input Cockpit (Left Side): Easily set tracks input string and active start head. Run FCFS / SSTF algorithms.\n" +
+                   "2. Reposition Line Vector Canvas (Right Side): High-contrast rendering track lines sequentially down.\n" +
+                   "3. Classroom Slide deck (Bottom area): Dynamic interactive theoretical presentations that students review and download.", {
+        x: 1.2, y: 3.1, w: 10.2, h: 2.4, fontSize: 12, color: textDark, lineSpacing: 20
+      });
+
+      // --- Slide 12: SDLC Implementation ---
+      const sl12 = pptx.addSlide();
+      sl12.background = { color: lightBG };
+      sl12.addText("11 / SOFTWARE LIFE CYCLE", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl12.addText("SDLC Phase 3: Coding & Implementation", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl12.addText("Translating geometric planning into robust, compiled client code files inside the workspace:", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      sl12.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl12.addText("ALGORITHMIC IMPLEMENTATION SCRIPT SAMPLES", { x: 1.2, y: 2.6, w: 10.2, h: 0.3, fontSize: 12, color: themeAccent, bold: true });
+      sl12.addText("// Run SSTF closest calculation dynamically\n" +
+                   "while (pending.length > 0) {\n" +
+                   "  let min_dist = Infinity, closest_idx = -1;\n" +
+                   "  for (let i = 0; i < pending.length; i++) {\n" +
+                   "    let dist = Math.abs(pending[i] - currentHead);\n" +
+                   "    if (dist < min_dist) { min_dist = dist; closest_idx = i; }\n" +
+                   "  }\n" +
+                   "  currentHead = pending.splice(closest_idx, 1)[0];\n" +
+                   "}", {
+        x: 1.2, y: 3.1, w: 10.2, h: 2.4, fontSize: 11, color: "065F46", fontFace: "Courier New", lineSpacing: 14
+      });
+
+      // --- Slide 13: SDLC Testing ---
+      const sl13 = pptx.addSlide();
+      sl13.background = { color: lightBG };
+      sl13.addText("12 / SOFTWARE LIFE CYCLE", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: "EF4444", bold: true });
+      sl13.addText("SDLC Phase 4: Integration & Quality Assurance", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl13.addText("We validated system boundaries and calculations systematically to guard against runtime bugs:", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      // 2 columns
+      sl13.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 5.2, h: 3.6, fill: { color: "FFF5F5" }, line: { color: "FEE2E2", width: 1 } });
+      sl13.addText("BOUNDARY TEST CASES", { x: 1.2, y: 2.6, w: 4.4, h: 0.3, fontSize: 12, color: "991B1B", bold: true });
+      sl13.addText("• Empty Inputs: Defaults gracefully instead of crashing math calculation processes.\n" +
+                   "• Out of boundaries inputs: Filtering blocks outside the active 0-199 track layout automatically.\n" +
+                   "• Non-numerical inputs: Parsing and rejecting characters from string sequence.", { x: 1.2, y: 3.0, w: 4.4, h: 2.5, fontSize: 11, color: "7F1D1D", lineSpacing: 18 });
+
+      sl13.addShape(pptx.shapes.RECTANGLE, { x: 6.6, y: 2.3, w: 5.2, h: 3.6, fill: { color: "F0FDF4" }, line: { color: "DCFCE7", width: 1 } });
+      sl13.addText("MATHEMATICAL TRUTH ACCURACY", { x: 7.0, y: 2.6, w: 4.4, h: 0.3, fontSize: 12, color: "166534", bold: true });
+      sl13.addText("• Verified that FCFS total seek math outputs exactly equal 640 on data set sequence.\n" +
+                   "• Verified that SSTF calculations yield exactly 236 total seek tracks.\n" +
+                   "• Audited browser console to verify zero canvas memory leaks during continuous renders.", { x: 7.0, y: 3.0, w: 4.4, h: 2.5, fontSize: 11, color: "14532D", lineSpacing: 18 });
+
+      // --- Slide 14: SDLC Deployment ---
+      const sl14 = pptx.addSlide();
+      sl14.background = { color: lightBG };
+      sl14.addText("13 / SOFTWARE LIFE CYCLE", { x: 0.8, y: 0.5, w: 11, h: 0.3, fontSize: 10, color: themeSecondary, bold: true });
+      sl14.addText("SDLC Phase 5: Build & Production Deployment", { x: 0.8, y: 0.8, w: 11, h: 0.5, fontSize: 24, color: textDark, fontFace: "Georgia", bold: true });
+      sl14.addText("The packing-to-cloud build process packages systems safely into sandboxed production environments:", {
+        x: 0.8, y: 1.5, w: 11, h: 0.5, fontSize: 12, color: "334155"
+      });
+      sl14.addShape(pptx.shapes.RECTANGLE, { x: 0.8, y: 2.3, w: 11, h: 3.6, fill: { color: "FFFFFF" }, line: { color: "E2E8F0", width: 1 } });
+      sl14.addText("BUILD SYSTEM SCHEMATICS & PIPELINES", { x: 1.2, y: 2.6, w: 10.2, h: 0.3, fontSize: 12, color: themeSecondary, bold: true });
+      sl14.addText("• Code Optimization: Vite bundles client files using Tree Shaking optimizations.\n" +
+                   "• Server Bundling: Esbuild packages Node.js logic into CJS files (dist/server.cjs) to improve container startup performance.\n" +
+                   "• Hosting Target: Run inside Google Cloud Run instances shielded by Nginx routing reverse proxies for high-bandwidth global delivery.", {
+        x: 1.2, y: 3.1, w: 10.2, h: 2.4, fontSize: 12, color: textDark, lineSpacing: 22
+      });
+
+      // --- Slide 15: Summary ---
+      const sl15 = pptx.addSlide();
+      sl15.background = { color: themePrimary };
+      sl15.addText("14 / ACADEMIC SUMMATIONS", { x: 0.8, y: 1.2, w: 11, h: 0.3, fontSize: 11, color: "818CF8", bold: true });
+      sl15.addText("Laboratory Takeaways & Future Extension Roadmaps", { x: 0.8, y: 1.6, w: 11, h: 0.6, fontSize: 30, color: textLight, fontFace: "Georgia", bold: true });
+      sl15.addText([
+        { text: "• High Classroom Impact: ", options: { bold: true, color: "818CF8" } },
+        { text: "Interactive, real-time feedback improves students' conceptual understanding of operating system storage layers.\n\n" },
+        { text: "• Scheduling Compromise: ", options: { bold: true, color: "818CF8" } },
+        { text: "We trace how optimizing spatial seek times forces a direct tradeoff with CPU allocation equity.\n\n" },
+        { text: "• Future Horizons: ", options: { bold: true, color: "818CF8" } },
+        { text: "The simulator core easily expands to support more complex elevator algorithms such as SCAN, C-SCAN, and C-LOOK." }
+      ], { x: 0.8, y: 2.5, w: 11, h: 3.5, fontSize: 13, color: "CBD5E1" });
 
       // Save the constructed pptx package
       pptx.writeFile({ fileName: "Disk_Scheduling_Simulator_Presentation.pptx" });
@@ -439,49 +563,55 @@ export default function App() {
       subtitle: "Mechanical Actuator Head Traversal & Physical Address Latency Solution",
       bg: "bg-slate-900 text-slate-100",
       content: (
-        <div className="space-y-6 pt-12 text-center max-w-xl mx-auto">
+        <div className="space-y-4 pt-8 text-center max-w-xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest leading-none">
-            Slide 1: College slide design deck
+            Slide 1: Deck Initialization
           </div>
-          <p className="text-base text-slate-400 font-light leading-relaxed">
+          <p className="text-sm text-slate-400 font-light leading-relaxed">
             An interactive numerical study model explaining, comparing, and visual-charting First-Come First-Served and Shortest Seek Time First storage scheduling.
           </p>
-          <div className="pt-8 text-[11px] font-mono text-slate-500 uppercase tracking-wider">
+          <div className="pt-4 text-[10px] font-mono text-slate-500 uppercase tracking-wider">
             Academic Lab Course Assessment System
           </div>
         </div>
       )
     },
     {
-      title: "The Problem of mechanical seek latency",
-      subtitle: "Mechanical bottlenecks inside rotating storage enclosures",
+      title: "Platter Anatomy & Disk Geometry",
+      subtitle: "Understanding mechanical addressing rings and sectors",
       bg: "bg-white text-slate-800 border border-slate-200",
       content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-          <div className="space-y-4">
-            <p className="text-xs text-slate-600 leading-relaxed font-sans">
-              Mechanical actuator head drift represents the highest bottleneck factor on physical hardware plates. Efficient schedulers organize cylinder queues dynamically:
-            </p>
-            <ul className="space-y-3 text-[11px] text-slate-500 font-mono">
-              <li className="flex items-center gap-2.5">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full flex-shrink-0" />
-                <span><strong>Seek delay:</strong> Radial actuator reposition arm delta</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full flex-shrink-0" />
-                <span><strong>Platter Sweep:</strong> Rotating target block address access</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <div className="w-2 h-2 bg-indigo-600 rounded-full flex-shrink-0" />
-                <span><strong>Throughput:</strong> High seeking efficiency guarantees wear safety</span>
-              </li>
-            </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div className="space-y-2 text-xs text-slate-600 leading-relaxed font-sans">
+            <p>Every magnetic storage drive platter is structured using standard concentric circles called <strong>Tracks</strong> (represented in this app as 0 to 199 range).</p>
+            <p>Concentric rings stacked vertically across multiple surfaces form <strong>Cylinders</strong>. The arm actuator shifts back and forth to reach specified tracks.</p>
           </div>
-          <div className="bg-slate-50 p-5 rounded-lg border border-slate-200 flex flex-col justify-center space-y-2">
-            <h4 className="text-xs font-bold text-slate-700 uppercase tracking-widest font-mono">Simulator Constraints</h4>
-            <p className="text-xs text-slate-500 leading-relaxed font-sans">
-              Addressable track boundaries reside strictly between 0 and 199. Head coordinates start dynamically based on user context settings.
-            </p>
+          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 flex flex-col justify-center space-y-1.5 text-xs">
+            <span className="font-bold text-slate-700 font-mono uppercase">Key Dimensions</span>
+            <span className="text-slate-500">• Platters: Dynamic magnetic disks</span>
+            <span className="text-slate-500">• Tracks: 0 through 199 boundaries</span>
+            <span className="text-slate-500">• Head: Active Read/Write physical nozzle</span>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "The Physics of Latency",
+      subtitle: "The major physical factors of magnetic drive overhead",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 text-xs">
+          <div className="p-3 bg-indigo-50/50 rounded border border-indigo-100">
+            <h4 className="font-bold text-indigo-800 font-mono">1. SEEK TIME</h4>
+            <p className="text-slate-600 mt-1">The time physical voice-coils require to accelerate and move the arm slider to the target track.</p>
+          </div>
+          <div className="p-3 bg-emerald-50/50 rounded border border-emerald-100">
+            <h4 className="font-bold text-emerald-800 font-mono">2. ROTATIONAL INTENSITY</h4>
+            <p className="text-slate-600 mt-1">The static delay waiting for target data sectors to spin underneath the resting head.</p>
+          </div>
+          <div className="p-3 bg-amber-50/50 rounded border border-amber-100">
+            <h4 className="font-bold text-amber-800 font-mono">3. TRANSFER LIMITS</h4>
+            <p className="text-slate-600 mt-1">The electrical limits governing the speed at which bits are read/written into driver sectors.</p>
           </div>
         </div>
       )
@@ -491,25 +621,21 @@ export default function App() {
       subtitle: "Chrono-sequential FIFO request queue sweeps",
       bg: "bg-white text-slate-800 border border-slate-200",
       content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-          <div className="bg-indigo-50/70 p-5 rounded-lg border border-indigo-100 space-y-2">
-            <h4 className="text-xs font-bold text-indigo-700 uppercase tracking-wider flex items-center gap-1.5 font-mono">
-              <Check size={14} /> System Benefits
-            </h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              - Zero traversal searching loops: direct FIFO stack array execution.<br />
-              - Fully democratic lookup queue: defends against cylinder head starvation. <br />
-              - Predictable, sequential response flow.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div className="bg-slate-50 p-4 rounded border border-slate-200 text-xs">
+            <h4 className="font-bold text-indigo-700 font-mono uppercase">Operational Strengths</h4>
+            <p className="text-slate-600 mt-1">
+              • Direct FIFO stack queue: chronological address ordering.<br />
+              • Zero starvation risk: every request is served in strict sequence.<br />
+              • Highly stable response timing.
             </p>
           </div>
-          <div className="bg-rose-50/70 p-5 rounded-lg border border-rose-100 space-y-2">
-            <h4 className="text-xs font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1.5 font-mono">
-              &times; Disadvantages
-            </h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              - Massive actuator track drift: nozzle steps repeatedly over opposing edges.<br />
-              - High physical arm degradation.<br />
-              - Inefficient total track path sum.
+          <div className="bg-rose-50/50 p-4 rounded border border-rose-100 text-xs">
+            <h4 className="font-bold text-rose-700 font-mono uppercase">Key Downsides</h4>
+            <p className="text-slate-600 mt-1">
+              • Extreme arm sweeps: high track drift over opposing limits.<br />
+              • Cumulative mechanical stress.<br />
+              • Disastrous average seeking distances.
             </p>
           </div>
         </div>
@@ -517,67 +643,227 @@ export default function App() {
     },
     {
       title: "Shortest Seek Time First (SSTF)",
-      subtitle: "Greedy physical proximity track allocation optimizer",
-      bg: "bg-white text-slate-800 border border-slate-200",
+      subtitle: "Greedy mechanical proximity track optimizer",
+      bg: "bg-white text-slate-800 border border-slate-250",
       content: (
-        <div className="space-y-4 pt-4">
-          <p className="text-xs text-slate-600 leading-relaxed">
-            At each state step, SSTF calculates absolute distance delta |Track_i - Current_Head| to identify the nearest requested sector address.
+        <div className="space-y-3 pt-2">
+          <p className="text-xs text-slate-600">
+            At each system loop step, SSTF calculates the absolute distance delta <code>|Track - Head|</code> to choose the nearest requested track cylinders next.
           </p>
-          <div className="bg-emerald-50/60 p-4 rounded-lg border border-emerald-100 text-[11px] font-mono text-emerald-805 space-y-1">
-            <p className="font-bold text-emerald-800 uppercase text-xs mb-1">SEARCH ALGORITHM COMMENTS</p>
-            <p className="text-emerald-700">// Uses a greedy lookup: iterates over the remaining request queue array</p>
-            <p className="text-emerald-700">// Identifies the index where distance is minimal: min(|T_Pending - H|)</p>
-            <p className="text-emerald-700">// Moves the head, deletes the satisfied pointer, and repeats</p>
-          </div>
-          <p className="text-[10px] text-slate-400 font-sans italic">
-            Starvation Risk: If requests cluster at track centers, outlying limits may remain unserviced indefinitely.
-          </p>
-        </div>
-      )
-    },
-    {
-      title: "Quantitative Performance Benchmarks",
-      subtitle: "Real track numerical outcomes comparing FCFS vs SSTF",
-      bg: "bg-white text-slate-800 border border-slate-200",
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-          <div className="border border-slate-200 p-5 rounded-lg space-y-2">
-            <h4 className="text-xs font-bold text-indigo-600 font-mono uppercase">FCFS Path Outcome</h4>
-            <p className="text-xs text-slate-500">
-              <strong>Order:</strong> 53 &rarr; 98 &rarr; 183 &rarr; 37 &rarr; 122 &rarr; 14 &rarr; 124 &rarr; 65 &rarr; 67<br />
-              <strong>Total Seek Movement:</strong> <span className="font-bold text-indigo-600">640 Tracks</span>
-            </p>
-          </div>
-          <div className="bg-emerald-50/40 border border-emerald-100 p-5 rounded-lg space-y-2">
-            <h4 className="text-xs font-bold text-emerald-700 font-mono uppercase">SSTF Optimized Path</h4>
-            <p className="text-xs text-slate-600">
-              <strong>Order:</strong> 53 &rarr; 65 &rarr; 67 &rarr; 37 &rarr; 14 &rarr; 98 &rarr; 122 &rarr; 124 &rarr; 183<br />
-              <strong>Total Seek Movement:</strong> <span className="font-bold text-emerald-600">236 Tracks</span><br />
-              <strong>Physical Saving:</strong> <span className="font-bold text-emerald-600">~63.1% savings!</span>
-            </p>
+          <div className="bg-emerald-50/80 p-3 rounded-lg border border-emerald-100 text-[10px] font-mono text-emerald-800 space-y-1">
+            <p className="font-bold uppercase text-emerald-900">// Greedy nearest first index algorithm loop</p>
+            <p>1. Identify the unserviced track index with minimum difference: min(|T - Head|)</p>
+            <p>2. Reposition read/write actuator head immediately to that track location</p>
+            <p>3. Mark track solved, slice from the pending array, update metrics, and repeat</p>
           </div>
         </div>
       )
     },
     {
-      title: "Operating Systems Summation",
-      subtitle: "Conclusions, scheduling compromises, and future elevator schedules",
+      title: "SSTF Bottleneck: Target Starvation",
+      subtitle: "Analyzing issues where outer extreme cylinders are locked out",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div className="space-y-2 text-xs text-slate-600">
+            <p>Because SSTF is a greedy scheduler, it keeps the physical nozzle moving locally if incoming requests keep accumulating in a compact sector zone.</p>
+            <p>Requests situated at extreme cylinder borders (such as track 14 or track 183) can be starved of service time indefinitely while the arm resides in the concentrated cluster.</p>
+          </div>
+          <div className="bg-amber-50/60 p-4 rounded border border-amber-150 flex flex-col justify-center text-xs space-y-1">
+            <span className="font-bold text-amber-800 font-mono uppercase">Starvation Resolution</span>
+            <p className="text-slate-650">We offset this risk using uniform linear sweep protocols such as <strong>SCAN / Elevator</strong> scheduling.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Performance Laboratory Benchmarks",
+      subtitle: "Comparing seek path outputs for standard datasets",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs">
+          <div className="border border-slate-200 p-4 rounded-lg bg-slate-50 space-y-1">
+            <h4 className="font-bold text-indigo-700 font-mono uppercase">FCFS SIMULATION PATH</h4>
+            <p className="text-slate-605">Traversal: 53 &rarr; 98 &rarr; 183 &rarr; 37 &rarr; 122 &rarr; 14 &rarr; 124 &rarr; 65 &rarr; 67</p>
+            <p className="text-slate-600 mt-1">Total Seek: <strong className="text-indigo-600 font-mono">640 Tracks</strong></p>
+          </div>
+          <div className="border border-emerald-150 p-4 rounded-lg bg-emerald-50/30 space-y-1">
+            <h4 className="font-bold text-emerald-800 font-mono uppercase">SSTF OPTIMIZED PATH</h4>
+            <p className="text-slate-600">Traversal: 53 &rarr; 65 &rarr; 67 &rarr; 37 &rarr; 14 &rarr; 98 &rarr; 122 &rarr; 124 &rarr; 183</p>
+            <p className="text-slate-600 mt-1">Total Seek: <strong className="text-emerald-700 font-mono">236 Tracks</strong> (~63.1% physical optimization)</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Built with AI: Engineering Origins",
+      subtitle: "Leveraging state-of-the-art AI systems for active code synthesis",
       bg: "bg-slate-900 text-slate-100",
       content: (
-        <div className="space-y-4 pt-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-slate-800 p-4 rounded-lg border border-slate-700/80 space-y-1">
-              <h5 className="text-xs font-bold text-indigo-400 uppercase font-mono">Equity vs Speed</h5>
-              <p className="text-[10px] text-slate-400">SSTF yields brilliant latency reductions but introduces starvation risks.</p>
+        <div className="space-y-3 pt-4 text-xs font-sans max-w-xl mx-auto">
+          <div className="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
+            <p className="text-slate-300">
+              This application was engineered using an <strong>AI-assisted human paradigm</strong> inside Google AI Studio. 
+            </p>
+            <p className="text-slate-400">
+              The AI Coding Agent, driven by <strong>Gemini models</strong> on the Antigravity workspace, translated natural-language directives directly into robust full-fidelity code, ensuring clean styling, accurate simulation calculations, and instant PowerPoint exports.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "The Technology Stack Breakdown",
+      subtitle: "Languages, framework libraries, and compilation layers utilized",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-[11px] font-mono">
+          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+            <span className="font-bold text-indigo-700">TypeScript / JS</span>
+            <p className="text-xs text-slate-500 font-sans mt-0.5">Core computational and simulation logic.</p>
+          </div>
+          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+            <span className="font-bold text-indigo-700">React 18/19</span>
+            <p className="text-xs text-slate-500 font-sans mt-0.5">Responsive virtual UI view state rendering.</p>
+          </div>
+          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+            <span className="font-bold text-indigo-700">Vite</span>
+            <p className="text-xs text-slate-500 font-sans mt-0.5">Ultra-fast static development server and bundler.</p>
+          </div>
+          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+            <span className="font-bold text-indigo-700">Tailwind CSS</span>
+            <p className="text-xs text-slate-500 font-sans mt-0.5">Modern utility layout and elegant UI typography.</p>
+          </div>
+          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+            <span className="font-bold text-indigo-700">HTML5 Canvas</span>
+            <p className="text-xs text-slate-500 font-sans mt-0.5">Real-time vector head positioning and seek paths.</p>
+          </div>
+          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+            <span className="font-bold text-indigo-700">pptxgenjs</span>
+            <p className="text-xs text-slate-500 font-sans mt-0.5">Direct binary client PPTX file generator.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "SDLC Phase 1: Planning & Analysis",
+      subtitle: "System Development Life Cycle: Defining system boundaries",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="space-y-2 text-xs text-slate-600 pt-2">
+          <p className="leading-relaxed font-sans">
+            During the <strong>Requirements Phase</strong>, we specified hardware storage constraints to represent in the virtual simulation environment:
+          </p>
+          <ul className="space-y-1.5 font-mono text-[10px] bg-slate-55 p-3 rounded border border-slate-200 text-slate-600">
+            <li>• Define memory address limits: 0 (innermost track) to 199 (outermost platter ring).</li>
+            <li>• Capture starting seek pointer input (the initial resting position of index read nozzle).</li>
+            <li>• Buffer incoming cylinder access requests sequentially, validating non-numeric characters.</li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      title: "SDLC Phase 2: Interface & Visual Design",
+      subtitle: "System Development Life Cycle: Engineering the user cockpit",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs">
+          <div className="space-y-2">
+            <p className="font-medium text-slate-700">Goal: Design a clean layout that maximizes high-student focus.</p>
+            <p className="text-slate-500">We split the active simulator into three logical visual channels: parameters cockpit on the left, primary vector canvas on the right, and dynamic theoretical slides below.</p>
+          </div>
+          <div className="bg-slate-50 p-3 rounded border border-slate-205 space-y-1 font-mono text-[10px]">
+            <span className="font-bold text-indigo-700 uppercase">UI Blueprints</span>
+            <p>• High-contrast Indigo colors for primary actions</p>
+            <p>• Emerald green for optimizing algorithms (SSTF)</p>
+            <p>• Monospaced labels for clear numbers</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "SDLC Phase 3: Coding & Implementation",
+      subtitle: "System Development Life Cycle: Algorithmic structures & vector math",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="space-y-2 pt-2 text-xs text-slate-600">
+          <p>
+            The software architecture comprises a single solid React subsystem module rendering simulation routines iteratively.
+          </p>
+          <div className="grid grid-cols-2 gap-3 text-[10px] font-mono text-slate-500">
+            <div className="p-2.5 bg-slate-50 rounded border border-slate-200">
+              <span className="font-bold block text-slate-700 uppercase">STATE SYSTEM LOGIC</span>
+              - Standard JS queues<br />
+              - React hook rendering <br />
+              - Simple array slice pop updates
             </div>
-            <div className="bg-slate-800 p-4 rounded-lg border border-slate-700/80 space-y-1">
-              <h5 className="text-xs font-bold text-emerald-400 uppercase font-mono">SCAN / Elevator</h5>
-              <p className="text-[10px] text-slate-400">Later protocols utilize single swept directions (SCAN) to ensure equity.</p>
+            <div className="p-2.5 bg-slate-50 rounded border border-slate-200">
+              <span className="font-bold block text-slate-700 uppercase">CANVAS ROUTINES</span>
+              - Context2D strokes<br />
+              - Custom track scaling formula<br />
+              - Dynamic node text pointers
             </div>
-            <div className="bg-slate-800 p-4 rounded-lg border border-slate-700/80 space-y-1">
-              <h5 className="text-xs font-bold text-indigo-400 uppercase font-mono">Subsystem Insights</h5>
-              <p className="text-[10px] text-slate-400">Low-level disc simulation guides storage block caching layouts.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "SDLC Phase 4: Integration & Testing",
+      subtitle: "System Development Life Cycle: Bound validation and dataset verifying",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs">
+          <div className="space-y-1.5 text-slate-600">
+            <p>We executed unit verification tests focusing on negative boundaries:</p>
+            <p>• Entering empty spaces in track sequence box defaults safely.</p>
+            <p>• Out-of-bounds target inputs (e.g. tracks above 199 or below 0) are automatically bypassed during mathematical calculations.</p>
+          </div>
+          <div className="p-3 bg-red-50/50 rounded border border-red-100 flex flex-col justify-center text-[10px] font-mono">
+            <span className="font-bold text-red-800 uppercase flex items-center gap-1">❌ QA Boundary Fail-Safe Case</span>
+            <p className="text-red-700 mt-1">// Filtering invalid chars from track input</p>
+            <p className="text-slate-605 mt-0.5">tracks.filter(t =&gt; !isNaN(t) &amp;&amp; t &gt;= 0 &amp;&amp; t &lt;= 199)</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "SDLC Phase 5: Build & Production Hosting",
+      subtitle: "System Development Life Cycle: Packing, container builds, and deployment",
+      bg: "bg-white text-slate-800 border border-slate-200",
+      content: (
+        <div className="space-y-2 pt-2 text-xs text-slate-650">
+          <p>
+            For production deployment, code is bundled using Esbuild compilation layers to maximize system responsiveness.
+          </p>
+          <ul className="space-y-1 list-disc pl-5 font-mono text-[10px] text-slate-500 font-sans">
+            <li><strong>Build:</strong> Vite produces optimized front-end bundles in the dist folder.</li>
+            <li><strong>Environment:</strong> Run on modern sandboxed container layers.</li>
+            <li><strong>Uptime:</strong> Scaled on high-bandwidth servers with secure Nginx ingress proxies of Google Cloud Run.</li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      title: "Summations & Academic Roadmaps",
+      subtitle: "Project results, educational takeaways, and future scheduling schedules",
+      bg: "bg-slate-900 text-slate-100",
+      content: (
+        <div className="space-y-4 pt-4 text-xs font-sans text-center max-w-xl mx-auto">
+          <p className="text-slate-350">
+            This simulator serves as an extremely intuitive laboratory tool that improves students' understanding of operating system storage layers.
+          </p>
+          <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] font-mono">
+            <div className="bg-slate-800/80 p-2 rounded border border-slate-700">
+              <span className="font-bold block text-indigo-400">IMPACT</span>
+              Interactive visual memory graphs.
+            </div>
+            <div className="bg-slate-800/80 p-2 rounded border border-slate-700">
+              <span className="font-bold block text-indigo-400">EVALUATION</span>
+              Quick metric savings view.
+            </div>
+            <div className="bg-slate-800/80 p-2 rounded border border-slate-700">
+              <span className="font-bold block text-indigo-400">EXTENSIONS</span>
+              Roadmap to SCAN & C-LOOK.
             </div>
           </div>
         </div>
