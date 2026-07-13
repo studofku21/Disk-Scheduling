@@ -101,7 +101,7 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
           <div className="bg-slate-50 p-4 rounded border border-slate-200 text-xs">
             <h4 className="font-bold text-indigo-700 font-mono uppercase">Operational Strengths</h4>
-            <p className="text-slate-605 mt-1">
+            <p className="text-slate-600 mt-1">
               • Direct FIFO stack queue: chronological address ordering.<br />
               • Zero starvation risk: every request is served in strict sequence.<br />
               • Highly stable response timing.
@@ -121,7 +121,7 @@ export default function App() {
     {
       title: "Shortest Seek Time First (SSTF)",
       subtitle: "Greedy mechanical proximity track optimizer",
-      bg: "bg-white text-slate-800 border border-slate-250",
+      bg: "bg-white text-slate-800 border border-slate-200",
       content: (
         <div className="space-y-3 pt-2">
           <p className="text-xs text-slate-600">
@@ -148,7 +148,7 @@ export default function App() {
           </div>
           <div className="bg-amber-50/60 p-4 rounded border border-amber-150 flex flex-col justify-center text-xs space-y-1">
             <span className="font-bold text-amber-800 font-mono uppercase">Starvation Resolution</span>
-            <p className="text-slate-650">We offset this risk using uniform linear sweep protocols such as <strong>SCAN / Elevator</strong> scheduling.</p>
+            <p className="text-slate-600">We offset this risk using uniform linear sweep protocols such as <strong>SCAN / Elevator</strong> scheduling.</p>
           </div>
         </div>
       )
@@ -195,29 +195,29 @@ export default function App() {
       bg: "bg-white text-slate-800 border border-slate-200",
       content: (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-[11px] font-mono">
-          <div className="p-2.5 bg-slate-50 border border-slate-255 rounded">
+          <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
             <span className="font-bold text-indigo-700">TypeScript / JS</span>
             <p className="text-xs text-slate-500 font-sans mt-0.5">Core computational and simulation logic.</p>
           </div>
-          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+          <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
             <span className="font-bold text-indigo-700">React 18/19</span>
             <p className="text-xs text-slate-500 font-sans mt-0.5">Responsive virtual UI view state rendering.</p>
           </div>
-          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+          <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
             <span className="font-bold text-indigo-700">Vite</span>
             <p className="text-xs text-slate-500 font-sans mt-0.5">Ultra-fast static development server and bundler.</p>
           </div>
-          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+          <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
             <span className="font-bold text-indigo-700">Tailwind CSS</span>
             <p className="text-xs text-slate-500 font-sans mt-0.5">Modern utility layout and elegant UI typography.</p>
           </div>
-          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+          <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
             <span className="font-bold text-indigo-700">HTML5 Canvas</span>
             <p className="text-xs text-slate-500 font-sans mt-0.5">Real-time vector head positioning and seek paths.</p>
           </div>
-          <div className="p-2.5 bg-slate-50 border border-slate-250 rounded">
+          <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
             <span className="font-bold text-indigo-700">pptxgenjs</span>
-            <p className="text-xs text-slate-505 font-sans mt-0.5">Direct binary client PPTX file generator.</p>
+            <p className="text-xs text-slate-500 font-sans mt-0.5">Direct binary client PPTX file generator.</p>
           </div>
         </div>
       )
@@ -231,7 +231,7 @@ export default function App() {
           <p className="leading-relaxed font-sans">
             During the <strong>Requirements Phase</strong>, we specified hardware storage constraints to represent in the virtual simulation environment:
           </p>
-          <ul className="space-y-1.5 font-mono text-[10px] bg-slate-55 p-3 rounded border border-slate-200 text-slate-600">
+          <ul className="space-y-1.5 font-mono text-[10px] bg-slate-50 p-3 rounded border border-slate-200 text-slate-600">
             <li>• Define memory address limits: 0 (innermost track) to 199 (outermost platter ring).</li>
             <li>• Capture starting seek pointer input (the initial resting position of index read nozzle).</li>
             <li>• Buffer incoming cylinder access requests sequentially, validating non-numeric characters.</li>
@@ -249,7 +249,7 @@ export default function App() {
             <p className="font-medium text-slate-700">Goal: Design a clean layout that maximizes high-student focus.</p>
             <p className="text-slate-500">We split the active simulator into three logical visual channels: parameters cockpit on the left, primary vector canvas on the right, and dynamic theoretical slides below.</p>
           </div>
-          <div className="bg-slate-50 p-3 rounded border border-slate-205 space-y-1 font-mono text-[10px]">
+          <div className="bg-slate-50 p-3 rounded border border-slate-200 space-y-1 font-mono text-[10px]">
             <span className="font-bold text-indigo-700 uppercase">UI Blueprints</span>
             <p>• High-contrast Indigo colors for primary actions</p>
             <p>• Emerald green for optimizing algorithms (SSTF)</p>
@@ -287,7 +287,7 @@ export default function App() {
     {
       title: "SDLC Phase 4: Integration & Testing",
       subtitle: "System Development Life Cycle: Bound validation and dataset verifying",
-      bg: "bg-white text-slate-850 border border-slate-200",
+      bg: "bg-white text-slate-800 border border-slate-200",
       content: (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs">
           <div className="space-y-1.5 text-slate-600">
@@ -295,10 +295,10 @@ export default function App() {
             <p>• Entering empty spaces in track sequence box defaults safely.</p>
             <p>• Out-of-bounds target inputs (e.g. tracks above 199 or below 0) are automatically bypassed during mathematical calculations.</p>
           </div>
-          <div className="p-3 bg-red-50/50 rounded border border-red-100 flex flex-col justify-center text-[10px] font-mono">
+          <div className="p-3 bg-red-50/50 rounded border border-red-150 flex flex-col justify-center text-[10px] font-mono">
             <span className="font-bold text-red-800 uppercase flex items-center gap-1">❌ QA Boundary Fail-Safe Case</span>
             <p className="text-red-700 mt-1">// Filtering invalid chars from track input</p>
-            <p className="text-slate-605 mt-0.5">tracks.filter(t =&gt; !isNaN(t) &amp;&amp; t &gt;= 0 &amp;&amp; t &lt;= 199)</p>
+            <p className="text-slate-600 mt-0.5">tracks.filter(t =&gt; !isNaN(t) &amp;&amp; t &gt;= 0 &amp;&amp; t &lt;= 199)</p>
           </div>
         </div>
       )
@@ -308,7 +308,7 @@ export default function App() {
       subtitle: "System Development Life Cycle: Packing, container builds, and deployment",
       bg: "bg-white text-slate-800 border border-slate-200",
       content: (
-        <div className="space-y-2 pt-2 text-xs text-slate-650">
+        <div className="space-y-2 pt-2 text-xs text-slate-600">
           <p>
             For production deployment, code is bundled using Esbuild compilation layers to maximize system responsiveness.
           </p>
@@ -853,13 +853,6 @@ export default function App() {
                     Launch Simulator <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </span>
                 </button>
-
-                <button
-                  onClick={() => setView('presentation')}
-                  className="relative flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-605 px-6 py-4 rounded-xl font-semibold text-base transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer active:scale-95 shadow-md"
-                >
-                  <User size={18} /> My Birth About Me Section
-                </button>
                 
                 <div className="text-slate-500 text-xs font-mono hidden sm:block border-l border-slate-800 pl-4 py-1">
                   TRACK ENVELOPE: <span className="text-slate-300 font-bold">0 - 199</span><br />
@@ -868,7 +861,7 @@ export default function App() {
               </div>
 
               {/* Feature Highlights Group */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800">
+              <div className="grid grid-cols-1 gap-4 pt-4 border-t border-slate-800">
                 <div className="flex items-start gap-3">
                   <div className="p-2 bg-slate-800 rounded-lg text-indigo-400 mt-1">
                     <Check size={16} />
@@ -876,16 +869,6 @@ export default function App() {
                   <div>
                     <h3 className="text-sm font-semibold text-slate-200">Interactive Seek Line charts</h3>
                     <p className="text-xs text-slate-500 leading-normal">Instantly trace the read/write nozzle movement vector over 200 addressable tracks.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-slate-800 rounded-lg text-emerald-400 mt-1">
-                    <Check size={16} />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-slate-200">Downloadable PPTX Deck</h3>
-                    <p className="text-xs text-slate-500 leading-normal">Generate fully responsive PowerPoint presentation slides summarizing your assignment results.</p>
                   </div>
                 </div>
               </div>
@@ -1003,7 +986,7 @@ export default function App() {
           </div>
 
           {/* Theoretical Section: FCFS vs. SSTF */}
-          <div className="bg-slate-950/40 p-8 border-t border-slate-805/50">
+          <div className="bg-slate-950/40 p-8 border-t border-slate-800/50">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2.5">
                 <div className="w-10 h-10 rounded-xl bg-indigo-50/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
@@ -1031,10 +1014,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Academic Footer */}
-          <footer className="py-6 border-t border-slate-800/40 text-center text-[10px] font-mono tracking-wider text-slate-500">
-            SCHOOL OF COMPUTER SCIENCE & ENGINEERING • INTEL STORAGE SUBSYSTEM EDUCATION TOOL
-          </footer>
         </motion.div>
       )}
 
@@ -1055,12 +1034,6 @@ export default function App() {
                   className="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-slate-350 hover:text-white border border-slate-700/80 rounded-lg cursor-pointer flex items-center gap-1.5 transition-all text-slate-300"
                 >
                   &larr; Theory Deck
-                </button>
-                <button
-                  onClick={() => setView('presentation')}
-                  className="px-3.5 py-1.5 bg-indigo-950/50 hover:bg-indigo-900/50 text-xs text-indigo-300 hover:text-indigo-105 border border-indigo-700/50 rounded-lg cursor-pointer flex items-center gap-1.5 transition-all"
-                >
-                  <User size={13} /> My Birth About Me Section
                 </button>
                 <div>
                   <h1 className="text-2xl font-bold tracking-tight text-indigo-300">Disk Scheduling OS Simulator</h1>
@@ -1153,7 +1126,7 @@ export default function App() {
                     </p>
                   </div>
                   <div className="bg-indigo-500/10 p-3 rounded border border-indigo-500/20 text-[11px] font-mono text-indigo-300">
-                    💡 Study Deck: Click "My Birth About Me" in the main navigation above to download PPTX slides describing the full SDLC, stack, and academic performance profiles of this lab simulator.
+                    💡 Concept Checklist: Verify both First-Come First-Served (FCFS) and Shortest Seek Time First (SSTF) seek metrics on any custom numeric track sequences.
                   </div>
                 </div>
               </div>
@@ -1194,7 +1167,7 @@ export default function App() {
             {/* Canvas/Visualizer Area */}
             <section className="md:col-span-8 lg:col-span-9 flex flex-col gap-6">
               <div className="flex-grow bg-white border border-slate-200 rounded-lg shadow-inner relative flex flex-col min-h-[500px]">
-                <div className="flex justify-between px-6 py-3 border-b border-slate-55 text-[10px] font-mono text-slate-400 uppercase tracking-widest">
+                <div className="flex justify-between px-6 py-3 border-b border-slate-100 text-[10px] font-mono text-slate-400 uppercase tracking-widest">
                   <span>Track 0</span>
                   <span className="hidden sm:inline">Track 100</span>
                   <span>Track 199</span>
@@ -1263,11 +1236,6 @@ export default function App() {
             </section>
           </main>
 
-          <footer className="p-6 text-center text-slate-400 border-t border-slate-200 bg-white">
-            <p className="text-[10px] font-mono uppercase tracking-[0.3em]">
-              OS Architecture Simulator // Faculty of Computing
-            </p>
-          </footer>
         </motion.div>
       )}
 
@@ -1280,12 +1248,12 @@ export default function App() {
           className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between"
         >
           {/* Slides Header Row */}
-          <header className="bg-slate-900/80 border-b border-slate-805/50 p-6 backdrop-blur-md sticky top-0 z-40">
+          <header className="bg-slate-900/80 border-b border-slate-800/50 p-6 backdrop-blur-md sticky top-0 z-40">
             <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setView('landing')}
-                  className="px-4 py-2 bg-slate-800 hover:bg-slate-705 text-xs text-slate-300 hover:text-white border border-slate-700 rounded-xl cursor-pointer flex items-center gap-2 transition-all font-mono"
+                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 hover:text-white border border-slate-700 rounded-xl cursor-pointer flex items-center gap-2 transition-all font-mono"
                 >
                   <ChevronLeft size={16} /> Exit Slides Deck
                 </button>
@@ -1381,9 +1349,6 @@ export default function App() {
             </div>
           </main>
 
-          <footer className="py-6 text-center text-[10px] font-mono text-slate-600 border-t border-slate-900/60 bg-slate-900/20">
-            MY PERSONAL CHRONOLOGY • PRESS DOWNLOAD BTN TO EXPORT EDITABLE SLIDES FILE
-          </footer>
         </motion.div>
       )}
     </AnimatePresence>
